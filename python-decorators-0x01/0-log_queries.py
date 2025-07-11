@@ -11,7 +11,7 @@ def with_db_connection(func):
         finally:
             conn.close()
     return wrapper
-
+["from datetime import datetime"]
 @with_db_connection
 def get_user_by_id(conn, user_id):
     cursor = conn.cursor()
