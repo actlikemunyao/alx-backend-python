@@ -63,3 +63,12 @@ class TestGetJson(unittest.TestCase):
 ])
 def test_get_json(self, test_url, test_payload):
 
+ - [Got]
+1
+
+(2 chars long)
+
+[Expected]
+0
+
+(2 chars long)
