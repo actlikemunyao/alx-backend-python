@@ -20,7 +20,38 @@ class TestAccessNestedMap(unittest.TestCase):
     @parameterized.expand([
         ({}, ("a",)),
         ({"a": 1}, ("a", "b")),
+    ])#!/usr/bin/env python3
+"""
+Unit tests for utils.get_json
+"""
+import unittest
+from unittest.mock import patch, Mock
+from utils import get_json
+from parameterized import parameterized
+
+
+class TestGetJson(unittest.TestCase):
+    """Test cases for get_json function"""
+
+    @parameterized.expand([
+        ("http://example.com", {"payload": True}),
+        ("http://holberton.io", {"payload": False}),
     ])
+    def test_get_json(self, test_url, test_payload):
+        """Test get_json returns correct payload from mocked requests.get"""
+        with patch("utils.requests.get") as mock_get:
+            # Configure the mock
+            mock_response = Mock()
+            mock_response.json.return_value = test_payload
+            mock_get.return_value = mock_response
+
+            # Call the function
+            result = get_json(test_url)
+
+            # Assert the correct behavior
+            mock_get.assert_called_once_with(test_url)
+            self.assertEqual(result, test_payload)
+
     def test_access_nested_map_exception(self, nested_map, path):
         """Test exceptions on invalid paths"""
         with self.assertRaises(KeyError) as ctx:
