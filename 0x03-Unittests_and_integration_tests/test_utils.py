@@ -1,4 +1,4 @@
-    @parameterized.expand([
+  #!/usr/bin/env python3  @parameterized.expand([
         ({}, ("a",)),
         ({"a": 1}, ("a", "b")),
     ])
