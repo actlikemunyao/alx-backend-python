@@ -57,3 +57,9 @@ class TestGetJson(unittest.TestCase):
         with self.assertRaises(KeyError) as ctx:
             access_nested_map(nested_map, path)
         self.assertEqual(str(ctx.exception), repr(path[-1]))
+        @parameterized.expand([
+    ("http://example.com", {"payload": True}),
+    ("http://holberton.io", {"payload": False}),
+])
+def test_get_json(self, test_url, test_payload):
+
