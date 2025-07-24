@@ -9,6 +9,7 @@ urlpatterns = [
     path('api/', include('chats.urls')),
 ]
 # chats/urls.py
+path('api/', include('chats.urls')),
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
