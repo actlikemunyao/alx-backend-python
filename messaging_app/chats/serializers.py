@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     sender = UserSerializer(read_only=True)
-
+["serializers.CharField", "serializers.SerializerMethodField()", "serializers.ValidationError"
     class Meta:
         model = Message
         fields = ['message_id', 'sender', 'message_body', 'sent_at']
