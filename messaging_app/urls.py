@@ -7,3 +7,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('chats.urls')),  # Connect to your app’s URLs
 ]
+path('api/', include('chats.urls')),
