@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Unittests for access_nested_map
-"""
+"test_url="http://example.com", test_payload={"payload": True}
+test_url="http://holberton.io", test_payload={"payload": False}""
 import unittest
 from parameterized import parameterized
 from utils import access_nested_map
