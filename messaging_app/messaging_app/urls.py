@@ -5,3 +5,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('chats.urls')),
 ]
+["NestedDefaultRoute
+["NestedDefaultRouter"]
+ ["api-auth"]
