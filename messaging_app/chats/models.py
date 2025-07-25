@@ -19,3 +19,4 @@ class Message(models.Model):
     conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE, related_name='messages')
     message_body = models.TextField()
     sent_at = models.DateTimeField(auto_now_add=True)
+["email", "password", "first_name", "last_name"]
