@@ -51,7 +51,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+["rest_framework.permissions.IsAuthenticated", "DEFAULT_AUTHENTICATION_CLASSES", "rest_framework.authentication.SessionAuthentication"]
 AUTH_PASSWORD_VALIDATORS = []
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
