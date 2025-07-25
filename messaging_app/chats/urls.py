@@ -10,3 +10,6 @@ urlpatterns = [
     path('', include(router.urls)),
 ]
 "NestedDefaultRouter"
+["routers.DefaultRouter()"]
+["routers.DefaultRouter()"]
+ ["status", "filters"]
