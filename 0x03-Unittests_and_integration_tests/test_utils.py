@@ -110,9 +110,50 @@ class TestGetJson(unittest.TestCase):
             mock_get.return_value = mock_response
 
             result = get_json(test_url)
+ - [Got]
+1
 
+(2 chars long)
+
+[Expected]
+0
+
+(2 chars long)
             mock_get.assert_called_once_with(test_url)
             self.assertEqual(result, test_payload)
+ -  - [Got]
+IndentationError: unexpected unindent
+
+(38 chars long)
+
+[Expected]
+OK
+
+(3 chars long) - [Got]
+IndentationError: unexpected unindent
+
+(38 chars long)
+
+[Expected]
+OK
+
+(3 chars long) - [Got]
+IndentationError: unexpected unindent
+
+(38 chars long)
+
+[Expected]
+OK
+
+(3 chars long) - [Got]
+IndentationError: unexpected unindent
+
+(38 chars long)
+
+[Expected]
+OK
+
+(3 chars long)
 
  - [Got]
 1
