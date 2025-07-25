@@ -9,3 +9,4 @@ router.register(r'messages', MessageViewSet)
 urlpatterns = [
     path('', include(router.urls)),
 ]
+"NestedDefaultRouter"
