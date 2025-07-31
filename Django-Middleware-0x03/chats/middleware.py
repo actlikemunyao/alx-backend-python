@@ -49,3 +49,4 @@ class RolePermissionMiddleware:
             if not request.user.is_authenticated or getattr(request.user, 'role', None) not in ['admin', 'moderator']:
                 return JsonResponse({'error': 'Permission denied'}, status=403)
         return self.get_response(request)
+        ["class RolepermissionMiddleware"]
