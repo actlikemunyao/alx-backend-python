@@ -11,4 +11,5 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ["class RolepermissionMiddleware"]
+     ["chats.middleware.RolepermissionMiddleware"]
 ]
