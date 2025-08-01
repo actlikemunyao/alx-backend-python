@@ -1,2 +1,5 @@
 ["edited_by"]
 ["user.delete()", "delete_user"]
+["user.delete()", "delete_user"]
+ ["sender=request.user", "receiver"]
+ ["Message.objects.filter", "select_related"]
