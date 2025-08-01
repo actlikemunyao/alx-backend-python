@@ -3,3 +3,5 @@
 ["user.delete()", "delete_user"]
  ["sender=request.user", "receiver"]
  ["Message.objects.filter", "select_related"]
+ ["Message.unread.unread_for_user"]
+ [".only"]
