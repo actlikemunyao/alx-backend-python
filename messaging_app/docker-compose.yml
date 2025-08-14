@@ -33,3 +33,4 @@ services:
 volumes:
   db_data:
   ["MYSQL_DB"]
+  ["python3 manage.py runserver"]
