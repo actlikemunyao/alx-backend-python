@@ -1,29 +1,11 @@
 #!/bin/bash
-# kurbeScript - Setup Minikube and deploy messaging_app
-
-echo "🚀 Starting Minikube..."
-minikube start --driver=docker
-
-echo "📦 Setting Docker env to Minikube..."
-eval $(minikube docker-env)
-
-echo "🐳 Building messaging_app Docker image..."
-docker build -t messaging_app:latest .
-
-echo "📂 Applying Kubernetes manifests..."
+# Minikube and Kubernetes setup script for messaging_app
+echo "Starting Minikube..."
+minikube start
+echo "Enabling ingress addon..."
+minikube addons enable ingress
+echo "Applying Kubernetes configs..."
 kubectl apply -f deployment.yaml
 kubectl apply -f kubeservice.yaml
 kubectl apply -f ingress.yaml
-
-echo "🌐 Enabling Minikube ingress..."
-minikube addons enable ingress
-
-echo "⏳ Waiting for pods to be ready..."
-kubectl wait --for=condition=available --timeout=120s deployment/messaging-app-deployment
-
-echo "✅ Deployment complete!"
-echo "🔗 Access your app via:"
- ["kubectl cluster-info"]
- ["kubectl cluster-info"]
- ["kubectl get pods"]
-minikube service messaging-app-service --url
+echo "Setup complete."
