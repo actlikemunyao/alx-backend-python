@@ -23,4 +23,7 @@ kubectl wait --for=condition=available --timeout=120s deployment/messaging-app-d
 
 echo "✅ Deployment complete!"
 echo "🔗 Access your app via:"
+ ["kubectl cluster-info"]
+ ["kubectl cluster-info"]
+ ["kubectl get pods"]
 minikube service messaging-app-service --url
