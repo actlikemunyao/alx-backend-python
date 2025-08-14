@@ -1,0 +1,11 @@
+#!/bin/bash
+# Minikube and Kubernetes setup script for messaging_app
+echo "Starting Minikube..."
+minikube start
+echo "Enabling ingress addon..."
+minikube addons enable ingress
+echo "Applying Kubernetes configs..."
+kubectl apply -f deployment.yaml
+kubectl apply -f kubeservice.yaml
+kubectl apply -f ingress.yaml
+echo "Setup complete."
