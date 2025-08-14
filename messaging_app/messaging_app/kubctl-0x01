@@ -1,2 +1,5 @@
 kubectl get pods
 kubectl describe pod <pod-name>
+["kubectl scale deployment", "--replicas", "3"]
+ ["wrk"]
+ ["kubectl top"]
