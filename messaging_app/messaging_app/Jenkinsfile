@@ -1,0 +1,70 @@
+pipeline {
+  agent any
+
+  environment {
+    GITHUB_CREDENTIALS = credentials('github-creds')
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout([$class: 'GitSCM',
+          branches: [[name: '*/main']],
+          userRemoteConfigs: [[
+            credentialsId: 'github-creds',
+            url: 'https://github.com/<your-username>/alx-backend-python.git'
+          ]]
+        ])
+      }
+    }
+
+    stage('Setup Python') {
+      steps {
+        sh 'python3 -V || true'
+        sh 'pip3 -V || true'
+        sh 'python3 -m pip install --upgrade pip'
+      }
+    }
+
+    stage('Install System Deps (MySQL client headers)') {
+      steps {
+        sh 'apt-get update && apt-get install -y gcc default-libmysqlclient-dev'
+      }
+    }
+
+    stage('Install Dependencies') {
+      steps {
+        sh 'pip3 install -r messaging_app/requirements.txt'
+      }
+    }
+
+    stage('Run Tests') {
+      steps {
+        dir('messaging_app') {
+          sh 'pytest --junitxml=pytest-report.xml'
+        }
+      }
+      post {
+        always {
+          junit 'messaging_app/pytest-report.xml'
+        }
+      }
+    }
+
+    stage('Build & Push Docker Image') {
+      when { expression { return env.DOCKERHUB_USER && env.DOCKERHUB_PASS } }
+      steps {
+        script {
+          docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
+            def img = docker.build("${env.DOCKERHUB_USER}/messaging_app:latest", "messaging_app/")
+            img.push()
+          }
+        }
+      }
+    }
+  }
+
+  options {
+    timestamps()
+  }
+}
