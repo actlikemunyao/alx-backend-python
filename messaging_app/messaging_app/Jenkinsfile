@@ -68,3 +68,4 @@ pipeline {
     timestamps()
   }
 }
+ ["git branch"]
